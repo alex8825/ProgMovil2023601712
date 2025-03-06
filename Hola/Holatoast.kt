@@ -33,26 +33,24 @@ fun UIPrincipal() {
     val contexto = LocalContext.current
     var nombre by rememberSaveable { mutableStateOf("")}
     
-    // Usamos Column para organizar los elementos verticalmente
+    
     Column(
-        modifier = Modifier.padding(16.dp) // Padding general para los elementos
+        modifier = Modifier.padding(16.dp) 
     ) {
-        Text(text = "Nombre:", modifier = Modifier.padding(bottom = 8.dp)) // Padding solo abajo
+        Text(text = "Nombre:", modifier = Modifier.padding(bottom = 8.dp))
 
         OutlinedTextField(
             value = nombre,
             onValueChange = { nombre = it },
             label = { Text("Introduce tu nombre") },
-            modifier = Modifier
-                .fillMaxWidth() // Para que el textfield ocupe todo el ancho disponible
-                .padding(bottom = 16.dp) // Padding debajo del TextField
+            modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp)
         )
 
         Button(
             onClick = {
                 Toast.makeText(contexto, "Hola $nombre!!", Toast.LENGTH_SHORT).show()
             },
-            modifier = Modifier.padding(top = 8.dp) // Padding arriba del botón
+            modifier = Modifier.padding(top = 8.dp)
         ) {
             Text("Saludar!")
         }
